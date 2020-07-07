@@ -1,0 +1,4 @@
+include ':nativetemplates'
+include ':sinch-android-rtc-3.17.4'
+include ':app'
+rootProject.name = "AppyHighTask"

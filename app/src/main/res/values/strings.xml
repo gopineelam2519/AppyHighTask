@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AppyHighTask</string>
+
+    <string name="key">aa78d5a2-36d5-440c-be6b-4d2776b55abf</string>
+    <string name="secret">BPhlP9hQqUGGFNl/tzfh9w==</string>
+    <string name="host_name">clientapi.sinch.com</string>
+    <string name="get_started">Get Started</string>
+
+    <string name="admob_app_id">ca-app-pub-8811746116102927~9934254325</string>
+</resources>

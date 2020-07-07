@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "336771668463",
+    "firebase_url": "https://apyhightask.firebaseio.com",
+    "project_id": "apyhightask",
+    "storage_bucket": "apyhightask.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336771668463:android:5cadec34104e7665e63e1a",
+        "android_client_info": {
+          "package_name": "com.techblue.appyhightask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "336771668463-gr80a9veoqq44hpo6nthesecc091hcgc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgA4Gqt1yWGR80K9_OsVXi-2FPUahM1oE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "336771668463-gr80a9veoqq44hpo6nthesecc091hcgc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
