@@ -15,6 +15,7 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.ads.nativetemplates.NativeTemplateStyle
 import com.google.android.ads.nativetemplates.TemplateView
@@ -67,7 +68,11 @@ class MainActivity : AppCompatActivity(), SinchClientListener, CallClientListene
             }
             getStartedBtn.isEnabled = true
             setUserState(false)
-            Toast.makeText(applicationContext, "Please try again after sometime...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                applicationContext,
+                "Please try again after sometime...",
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
         override fun onTick(p0: Long) {
@@ -94,7 +99,7 @@ class MainActivity : AppCompatActivity(), SinchClientListener, CallClientListene
             sharedPreferences.edit().apply {
                 putString(USER_ID, uuid)
             }.apply()
-            val user = User(uuid, true)
+            val user = User(uuid, false)
 
             if (mDataBase != null)
                 mDataBase!!.child("users").child(uuid).setValue(user).addOnSuccessListener {
@@ -150,6 +155,9 @@ class MainActivity : AppCompatActivity(), SinchClientListener, CallClientListene
         rejectFab = findViewById(R.id.floating_action_button_end)
         adTemplateView = findViewById(R.id.adTemplate)
 
+        val toolbar = findViewById<Toolbar>(R.id.mainToolbar)
+        setSupportActionBar(toolbar)
+
         getStartedBtn.setOnClickListener {
             getRequiredPermission()
         }
@@ -180,19 +188,31 @@ class MainActivity : AppCompatActivity(), SinchClientListener, CallClientListene
     private fun getRequiredPermission() {
         val permissionActivity = PermissionActivity()
         permissionActivity.setPermissionsRequestListener(null)
-        permissionActivity.setPermissionsRequestListener(object : PermissionActivity.PermissionRequestListener {
+        permissionActivity.setPermissionsRequestListener(object :
+            PermissionActivity.PermissionRequestListener {
             override fun onPermissionGranted(granted: Boolean) {
                 //Here you will get the permissions are accepted or not
                 if (granted) {
                     onGetStartedBtnClick()
                 } else {
-                    Toast.makeText(applicationContext, "Couldn't proceed further", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        applicationContext,
+                        "Couldn't proceed further",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         })
         val permissionIntent = Intent(this, permissionActivity.javaClass)
         //start of pass required permissions as Array
-        permissionIntent.putExtra(PermissionActivity.PERMISSION_ARRAY_NAME, arrayOf<String>(CAMERA, Manifest.permission.READ_PHONE_STATE, Manifest.permission.RECORD_AUDIO))
+        permissionIntent.putExtra(
+            PermissionActivity.PERMISSION_ARRAY_NAME,
+            arrayOf<String>(
+                CAMERA,
+                Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.RECORD_AUDIO
+            )
+        )
         //end of pass required permissions as Array
         startActivity(permissionIntent)
     }
@@ -223,6 +243,10 @@ class MainActivity : AppCompatActivity(), SinchClientListener, CallClientListene
     private fun callRandomUser(userInOnline: MutableList<User>) {
         val randomUser = userInOnline[Random().nextInt(userInOnline.size)]
         Log.d(TAG, "RandomUser---->$randomUser")
+
+        //change the state of random user and own person
+        setUserState(false)
+        setUserState(false, randomUser.userId)
 
         if (sinchClient != null) {
             val callClient = sinchClient!!.callClient
@@ -267,9 +291,9 @@ class MainActivity : AppCompatActivity(), SinchClientListener, CallClientListene
         sinchClient?.terminate()
     }
 
-    private fun setUserState(state: Boolean) {
+    private fun setUserState(state: Boolean, id: String? = null) {
         if (userId != null && mDataBase != null)
-            mDataBase!!.child("users").child(userId!!).child("active").setValue(state)
+            mDataBase!!.child("users").child(id ?: userId!!).child("active").setValue(state)
     }
 
     override fun onDestroy() {
