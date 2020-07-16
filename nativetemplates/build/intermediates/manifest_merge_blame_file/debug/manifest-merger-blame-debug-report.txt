@@ -6,13 +6,13 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="16"
-8-->/Users/gopineelam/Desktop/Projects@Gopi/Temp/AppyHighTask/nativetemplates/src/main/AndroidManifest.xml
+8-->/Users/gopineelam/Desktop/Projects@Gopi/AppyHighTask2/nativetemplates/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="28" />
-9-->/Users/gopineelam/Desktop/Projects@Gopi/Temp/AppyHighTask/nativetemplates/src/main/AndroidManifest.xml
+9-->/Users/gopineelam/Desktop/Projects@Gopi/AppyHighTask2/nativetemplates/src/main/AndroidManifest.xml
 10
 11    <application android:supportsRtl="true" >
-11-->/Users/gopineelam/Desktop/Projects@Gopi/Temp/AppyHighTask/nativetemplates/src/main/AndroidManifest.xml:3:3-5:17
-11-->/Users/gopineelam/Desktop/Projects@Gopi/Temp/AppyHighTask/nativetemplates/src/main/AndroidManifest.xml:3:16-42
+11-->/Users/gopineelam/Desktop/Projects@Gopi/AppyHighTask2/nativetemplates/src/main/AndroidManifest.xml:3:3-5:17
+11-->/Users/gopineelam/Desktop/Projects@Gopi/AppyHighTask2/nativetemplates/src/main/AndroidManifest.xml:3:16-42
 12    </application>
 13
 14</manifest>
