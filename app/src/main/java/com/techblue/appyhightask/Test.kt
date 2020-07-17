@@ -1,6 +1,9 @@
 package com.techblue.appyhightask
 
 fun main() {
+
+    //finding max no.of consecutive 1s
+
     val arr = intArrayOf(1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1)
     var maxLength = 0
     var globalMax = 0

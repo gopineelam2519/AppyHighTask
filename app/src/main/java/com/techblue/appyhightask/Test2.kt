@@ -2,6 +2,8 @@ package com.techblue.appyhightask
 
 fun main() {
 
+    //finding repeated 10 char length subString which occurs more than once
+
     val input = "AAAAACCCCCAAAAACCCCCCAAAAAGGGGGTTTTTGGGGGTTTTTTGGGGGBBBCCC"
 
     val charArray = input.toCharArray()
